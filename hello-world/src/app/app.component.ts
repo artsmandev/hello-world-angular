@@ -7,10 +7,15 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 	buttonEnabled = false;
+	clickButtonMessage = 'The button was not clicked'
 
 	constructor() {
 		setTimeout(() => {
 			this.buttonEnabled = true;
 		}, 2000);
+	}
+
+	onClickButton() {
+		this.clickButtonMessage = 'The button was clicked!'
 	}
 }
