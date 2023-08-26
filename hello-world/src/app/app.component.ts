@@ -6,19 +6,15 @@ import {Component} from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	server = '';
-	status: string = 'offline';
-	servers: string[] = [];
+	displayDetails = false;
+	clicksCount: number[] = [];
 
-	constructor() {
-		this.status = Math.random() > 0.5 ? 'online' : 'offline';
+	onDisplayDetails() {
+		this.clicksCount.push(this.clicksCount.length + 1);
+		this.displayDetails = !this.displayDetails;
 	}
 
-	getColor() {
-		return this.status === 'online' ? 'green' : 'red';
-	}
-
-	onAddServer() {
-		this.servers.push(this.server);
+	blueColor() {
+		return this.clicksCount.length >= 5 ? 'blue' : 'white';
 	}
 }
