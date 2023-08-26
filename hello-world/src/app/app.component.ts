@@ -7,4 +7,13 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 	username = '';
+	status: string = 'offline';
+
+	constructor() {
+		this.status = Math.random() > 0.5 ? 'online' : 'offline';
+	}
+
+	getColor() {
+		return this.status === 'online' ? 'green' : 'red';
+	}
 }
