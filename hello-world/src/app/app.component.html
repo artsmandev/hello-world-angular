@@ -1,22 +1,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<ol>
-				<li>Add a input field which updated a property ('username') via Two-Way-Binding</li>
-				<li>Output the username property via String Interpolation (in a paragraph below the input)</li>
-				<li>Add a button which may only be clicked if the username is NOT an empty string</li>
-				<li>Upon clicking the button, the username should be reset to an empty string</li>
-			</ol>
-			<hr />
-			<input type="text" class="form-control" [(ngModel)]="username">
-			<p *ngIf="!(username === ''); else nothingTyped">The username is: {{ username }}</p>
-			<ng-template #nothingTyped>
-				<p>There's nothing typed.</p>
-			</ng-template>
-			<button class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Reset</button>
+			<label>Server</label>
+			<input type="text" class="form-control" [(ngModel)]="server">
+			<button class="btn btn-primary" (click)="onAddServer()">New Server</button>
 			<hr>
 			<p [ngStyle]="{'background-color': getColor()}"
-				 [ngClass]="{online: status === 'online'}">The status is: {{ status }}</p>
+				 [ngClass]="{online: status === 'online'}"
+				 *ngFor="let server of servers">The status is: {{ status }}</p>
 		</div>
 	</div>
 </div>
