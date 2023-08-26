@@ -9,7 +9,10 @@
 			</ol>
 			<hr />
 			<input type="text" class="form-control" [(ngModel)]="username">
-			<p *ngIf="!(username === '')">The username is: {{ username }}</p>
+			<p *ngIf="!(username === ''); else nothingTyped">The username is: {{ username }}</p>
+			<ng-template #nothingTyped>
+				<p>There's nothing typed.</p>
+			</ng-template>
 			<button class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Reset</button>
 		</div>
 	</div>
