@@ -1,13 +1,20 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<label>Server</label>
-			<input type="text" class="form-control" [(ngModel)]="server">
-			<button class="btn btn-primary" (click)="onAddServer()">New Server</button>
-			<hr>
-			<p [ngStyle]="{'background-color': getColor()}"
-				 [ngClass]="{online: status === 'online'}"
-				 *ngFor="let server of servers">The status is: {{ status }}</p>
+			<ol>
+				<li>Add a button which says 'Display Details'</li>
+				<li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
+				<li>Toggle the displaying of that paragraph with the button created in the first step</li>
+				<li>Log all button clicks in an array and output that array bellow the secret paragraph (maybe log a timestamp of simply an incrementing number)</li>
+				<li>Starting at the 5th item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+			</ol>
+			<hr />
+			<button class="btn btn-primary" (click)="onDisplayDetails()">Display Details</button>
+			<p *ngIf="displayDetails">Secret Password = tuna</p>
+			<div *ngFor="let clickCountNumber of clicksCount"
+				 	 [ngStyle]="{'background-color': clickCountNumber >= 5 ? 'blue' : 'white'}"
+				 	 [ngClass]="{'text-white': clickCountNumber >= 5}">{{ clickCountNumber }}
+			</div>
 		</div>
 	</div>
 </div>
