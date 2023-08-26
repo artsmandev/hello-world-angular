@@ -13,6 +13,9 @@
 			<app-warning-alert />
 			<app-success-alert />
 			<hr />
+			<label>Type something</label>
+			<input type="text" class="form-control" (input)="onInputUpdate($event)">
+			<p>{{ inputText }}</p>
 			<button class="btn btn-primary" [disabled]="!buttonEnabled" (click)="onClickButton()">Click-me!</button>
 			<p>{{ clickButtonMessage }}</p>
 		</div>
