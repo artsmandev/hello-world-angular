@@ -6,8 +6,9 @@ import {Component} from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	username = '';
+	server = '';
 	status: string = 'offline';
+	servers: string[] = [];
 
 	constructor() {
 		this.status = Math.random() > 0.5 ? 'online' : 'offline';
@@ -15,5 +16,9 @@ export class AppComponent {
 
 	getColor() {
 		return this.status === 'online' ? 'green' : 'red';
+	}
+
+	onAddServer() {
+		this.servers.push(this.server);
 	}
 }
