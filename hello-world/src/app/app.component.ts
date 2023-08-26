@@ -7,10 +7,10 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 	displayDetails = false;
-	clicksCount: number[] = [];
+	clicksCount: Date[] = [];
 
 	onDisplayDetails() {
-		this.clicksCount.push(this.clicksCount.length + 1);
+		this.clicksCount.push(new Date());
 		this.displayDetails = !this.displayDetails;
 	}
 

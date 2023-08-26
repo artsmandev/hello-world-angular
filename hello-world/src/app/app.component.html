@@ -11,9 +11,9 @@
 			<hr />
 			<button class="btn btn-primary" (click)="onDisplayDetails()">Display Details</button>
 			<p *ngIf="displayDetails">Secret Password = tuna</p>
-			<div *ngFor="let clickCountNumber of clicksCount"
-				 	 [ngStyle]="{'background-color': clickCountNumber >= 5 ? 'blue' : 'white'}"
-				 	 [ngClass]="{'text-white': clickCountNumber >= 5}">{{ clickCountNumber }}
+			<div *ngFor="let clickCountNumber of clicksCount; let i = index"
+				 	 [ngStyle]="{'background-color': i >= 4 ? 'blue' : 'white'}"
+				 	 [ngClass]="{'text-white': i >= 4}">{{ clickCountNumber }}
 			</div>
 		</div>
 	</div>
