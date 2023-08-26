@@ -8,6 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
 	buttonEnabled = false;
 	clickButtonMessage = 'The button was not clicked'
+	inputText: string;
 
 	constructor() {
 		setTimeout(() => {
@@ -17,5 +18,9 @@ export class AppComponent {
 
 	onClickButton() {
 		this.clickButtonMessage = 'The button was clicked!'
+	}
+
+	onInputUpdate(event: Event) {
+		this.inputText = (<HTMLInputElement>event.target).value;
 	}
 }
