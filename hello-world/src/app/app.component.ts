@@ -6,16 +6,15 @@ import {Component} from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	buttonEnabled = false;
-	clickButtonMessage = 'The button was not clicked'
+	displayDetails = false;
+	clicksCount: Date[] = [];
 
-	constructor() {
-		setTimeout(() => {
-			this.buttonEnabled = true;
-		}, 2000);
+	onDisplayDetails() {
+		this.clicksCount.push(new Date());
+		this.displayDetails = !this.displayDetails;
 	}
 
-	onClickButton() {
-		this.clickButtonMessage = 'The button was clicked!'
+	blueColor() {
+		return this.clicksCount.length >= 5 ? 'blue' : 'white';
 	}
 }
